@@ -1,0 +1,40 @@
+/* css1 */
+/*
+h1{
+    color:orange;
+}
+h2{
+    color:brown;
+    background-color:blue;
+}
+*/
+
+/* css2 */
+/*
+body{
+    background-color: cornflowerblue;
+}
+div{
+    background-color: chartreuse;
+    border-color: orange;
+    border-width: 10px;
+    border-style: dashed;
+}
+span{
+    background-color: red;
+}
+*/
+
+/* css3 */
+div{
+    color:orange;
+}
+.myclass {
+    color:red;
+}
+#one{
+    color:blue;
+}
+#two{
+    color:green;
+}
