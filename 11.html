@@ -1,0 +1,55 @@
+<script>
+    // 문서 로딩 끝나면 자바스크립트 시작
+    document.addEventListener('DOMContentLoaded', function() {
+        const logo = document.getElementById('logo');
+        const bg = document.getElementById('headerS');
+        const menu = document.querySelectorAll('.elementskit-navbar-nav-default .elementskit-navbar-nav>li>a');
+        const white_color = `rgb(255, 255, 255)`;
+        const white_bg_color = `rgba(255, 255, 255,0.9)`;
+        const black_color = `rgb(0, 0, 0)`;
+        const hover_color = `rgb(30,43,88)`;
+        const og_color = ``;
+            
+        // 색상+로고 초기화
+        menu.forEach(de => {
+                de.style.color = white_color;
+                de.addEventListener('mouseenter', () => {
+                    de.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                });
+                de.addEventListener('mouseleave', () => {
+                       de.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                });
+        });
+        logo.src = 'https://miracleconsulting.kr/wp-content/uploads/2024/08/미라클컨설팅-로고화이트.png';
+        
+        // 스크롤 이벤트를 감지
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) { // 10px 이상 스크롤하면
+                logo.src = 'https://miracleconsulting.kr/wp-content/uploads/2024/08/미라클컨설팅-로고.png'; // 로고를 검은색 로고로 변경
+                bg.style.backgroundColor = white_bg_color; // 배경화면을 흰색으로 변경
+                menu.forEach(me => {
+                    me.style.color = black_color;  // 메뉴글씨를 검정색으로 변경
+                    me.addEventListener('mouseenter', () => {
+                        me.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                    });
+                    me.addEventListener('mouseleave', () => {
+                           me.style.color = black_color; // 원래 폰트 색상으로 되돌림
+                    });
+                });
+                
+            } else {
+                logo.src = 'https://miracleconsulting.kr/wp-content/uploads/2024/08/미라클컨설팅-로고화이트.png'; // 원래 로고로 되돌림
+                bg.style.backgroundColor = og_color;
+                menu.forEach(me => {
+                    me.style.color = white_color;  // 메뉴글씨를 흰색으로 변경
+                    me.addEventListener('mouseenter', () => {
+                        me.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                    });
+                    me.addEventListener('mouseleave', () => {
+                           me.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                    });
+                });
+            }
+        });
+    });
+    </script>

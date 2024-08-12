@@ -1,0 +1,247 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    <style>
+        textarea[disabled] {
+        height:160px;
+        padding:5px;
+        font-size:15px;
+        font-family:'sans-serif'; 
+        color:#A5A5A5;
+        font-weight:400;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.5); /* 크기를 1.5배로 확대 */
+            -webkit-transform: scale(1.5); /* Safari 브라우저용 */
+            margin: 4px;
+            vertical-align: middle;
+        }
+        .checkbox-container label {
+          font-size: 16px;
+          color: #0e141c;
+        }
+        </style>
+        
+        <span style="font-size:20px;font-familiy:'sans-serif'; color:#303030; font-weight:800;">개인정보 수집 및 이용동의</span>
+        <textarea disabled>
+        1. 개인정보의 수집 이용목적
+         ㈜어펙션은 회사 및 제품에 대한 문의사항에 대한 답변 업무 목적으로만 귀하의 개인정보를 처리합니다.
+        
+        2. 수집하는 개인정보 항목
+         수집정보 항목 : 이름, 이메일, 전화번호
+        
+        3. 개인정보의 보유 및 이용 기간
+         입력하신 개인정보는 문의에 대한 답변 처리가 완료된 후 즉시 삭제됩니다.
+        
+        4. 동의를 거부할 권리 및 동의 거부에 따른 불이익
+        고객께서는 개인정보 수집 및 이용에 동의하지 않을 권리가 있습니다. 다만, 이메일, 연락처 등의 개인정보를 입력하지 않은 고객문의에 대하여는 답변을 제공받지 못할 수 있습니다.
+        </textarea>
+        <br>
+        
+<div class="checkbox-container">
+    <input type="checkbox" id="checkbox1" class="checkboxc" onclick="getCheck()"/>
+    <label for="checkbox1">위 개인정보 수집이용에 동의합니다.</label>
+</div>
+
+
+
+
+
+
+    
+
+    <script>
+        document.getElementById('afc01').addEventListener('click', function(event) {
+            var checkbox = document.getElementById('checkbox1');
+            alert('들어옴');
+            if (!checkbox.checked) {
+                alert('개인정보 수집 및 이용에 동의 해 주세요.');
+                event.preventDefault(); // 버튼 클릭 이벤트 취소
+            } else {
+
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<form id="myForm" action="#" method="post">
+    <div class="form-group">
+        <input type="checkbox" id="checkboxField" name="checkboxField" />
+        <label for="checkboxField">I agree to the terms and conditions</label>
+        <span class="error-message" id="checkboxError">개인정보 수집 및 이용에 동의 해 주세요.</span>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('afc02').on('submit', function(event) {
+            var checkbox = $('#checkbox1');
+            var errorMessage = $('#checkboxError');
+
+            // 체크박스 상태 확인
+            if (!checkbox.is(':checked')) {
+                errorMessage.show(); // 오류 메시지 표시
+                event.preventDefault(); // 폼 제출 방지
+            } else {
+                errorMessage.hide(); // 오류 메시지 숨기기
+            }
+        });
+    });
+</script>
+
+
+
+jQuery(document).ready(function($) {
+    // Replace "checkbox1" with the actual ID or class of your checkbox field
+    if (!$('#checkbox1').is(':checked')) {
+        alert('개인정보 수집 및 이용에 동의 해 주세요.');
+        return false; // Prevent form submission
+    }
+});
+
+
+
+
+
+
+    
+    <div class="checkbox-container">
+        <input type="checkbox" id="checkbox1" class="checkboxc" onclick="getCheck()"/>
+        <label for="checkbox1">위 개인정보 수집이용에 동의합니다.</label>
+    </div>
+
+
+
+<!-- 되는 버전(활성화 컬러만 안돌아옴)  -->
+<style>
+    /* 비활성화된 버튼에 스타일을 추가할 수 있습니다. */
+    .enabled {
+        background-color: #223E84 !important;
+        cursor: default;
+    }
+    .disabled {
+        background-color: #ccc !important;
+        cursor: not-allowed;
+    }
+</style>
+<script>
+    // 체크 개수 따라 구매계속 버튼 색 바뀌기
+    function getCheck(){
+        const query = 'input[class=checkboxc]:checked';
+        const selectedElements = document.querySelectorAll(query);
+        const cnt = selectedElements.length;
+        var button = document.getElementById('afc01');
+
+        if(cnt == 1){
+            button.classList.add('enabled');
+            document.querySelector('#afc01').disabled=false;
+
+        }else{
+            button.classList.add('disabled');
+            document.querySelector('#afc01').disabled=true;
+        }
+    }
+</script>
+
+
+
+<style>
+    /* 비활성화된 버튼에 스타일을 추가할 수 있습니다. */
+    .disabled {
+        background-color: #ccc !important;
+        cursor: not-allowed;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // querySelector를 사용하여 버튼 선택
+        var button = document.querySelector('#afc01');
+        // 버튼을 비활성화하고 스타일을 추가합니다.
+        button.disabled = true;
+        button.classList.add('disabled');
+    });
+</script>
+
+
+
+
+
+
+
+<style>
+    /* 비활성화된 버튼에 스타일을 추가할 수 있습니다. */
+    .enabled {
+        background-color: #223E84 !important;
+        cursor: default;
+    }
+    .disabled {
+        background-color: #ccc !important;
+        cursor: not-allowed;
+    }
+</style>
+
+
+
+
+<script>
+    // 체크 개수 따라 구매계속 버튼 색 바뀌기
+    function getCheck(){
+        const query = 'input[class=checkboxc]:checked';
+        const selectedElements = document.querySelectorAll(query);
+        const cnt = selectedElements.length;
+        var button = document.querySelector('#afc01');
+
+        if(cnt == 1){
+            button.disabled=false;
+            button.style.setProperty('background-color', '#223E84', 'important');
+
+        }else{
+            button.disabled=true;
+            button.style.setProperty('background-color', '#ccc', 'important');
+        }
+    }
+</script>
+
+
+
+
+
+
+<style>
+    /* 비활성화된 버튼에 스타일을 추가할 수 있습니다. */
+    .disabled {
+        background-color: #ccc !important;
+        cursor: not-allowed;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // querySelector를 사용하여 버튼 선택
+        var button = document.querySelector('#afc01');
+        // 버튼을 비활성화하고 스타일을 추가합니다.
+        button.disabled = true;
+        button.classList.add('disabled');
+    });
+</script>
+
+
+
+
+
+
+
+
+aft_sales@aftinst.com
