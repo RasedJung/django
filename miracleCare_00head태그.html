@@ -1,0 +1,175 @@
+    <!-- 카카오톡 후기 슬라이드를 위한 Swiper.js 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 카카오톡 후기 슬라이드 styles -->
+    <style>
+        html,
+        body {
+        position: relative;
+        height: 100%;
+        }
+
+        body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+        }
+
+        .swiper {
+        width: 100%;
+        height: 100%;
+        }
+
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        /*background: #fff*/;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 40px;
+        border : 13px solid #fff;
+        }
+
+        .slide-text {
+        margin-top: 10px; /* 텍스트와 이미지 사이의 간격 조정 */
+        font-size: 22px;
+        color: #333;
+        font-family: "Spoqa_Medium";
+        }
+
+        .swiper-scrollbar {
+        width: 500px !important;
+        height: 7px !important;
+        position: absolute !important;       /* 절대 위치로 설정 */
+        left: 50% !important;                /* 왼쪽 기준 50% */
+        transform: translateX(-50%) !important; /* 가운데 정렬을 위해 translate 사용 */
+        }
+
+        /* 스크롤바 핸들(드래그 가능한 부분) 크기 조정 */
+        .swiper-scrollbar-drag {
+        width: 100px !important;  /* 드래그 가능한 스크롤바 핸들의 크기 조정 */
+        background-color: #487ee3; /* 원하는 색상으로 변경 가능 */
+        }
+    </style>
+
+    <!-- 스크롤애니메이션을 위한 wow.js 추가 -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <script src="/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <!-- 스크롤에 의한 스티키 헤더 설정 -->
+    <script>
+        // 문서 로딩 끝나면 자바스크립트 시작
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.getElementById('logo');
+            const bg = document.getElementById('headerS');
+            const menu = document.querySelectorAll('.elementskit-navbar-nav-default .elementskit-navbar-nav>li>a');
+            //const arrow = document.querySelector('.elementor-274 .elementor-element.elementor-element-64c230b4 .elementskit-navbar-nav > li > a .elementskit-submenu-indicator');
+            const white_color = `rgb(255, 255, 255)`;
+            const white_bg_color = `rgba(255, 255, 255, 0.9)`;
+            const black_color = `rgb(0, 0, 0)`;
+            const hover_color = `rgb(45,63,123)`;
+            const og_color = ``;
+
+            // 색상+로고 초기화
+            let de_count = 0;
+            menu.forEach(de => {
+                de.style.color = white_color;
+                if (de_count!==1) {
+                    de.addEventListener('mouseenter', () => {
+                        de.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                    });
+                    de.addEventListener('mouseleave', () => {
+                        de.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                    });
+                } else {
+                    de.addEventListener('mouseenter', () => {
+                        de.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                        //arrow.style.color = hover_color;
+                    });
+                    de.addEventListener('mouseleave', () => {
+                        de.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                        //arrow.style.color = white_color;
+                    });
+                }
+                de_count++;
+            });
+            logo.src = '/wp-content/uploads/2024/09/미라클케어-로고2화이트.png';
+            bg.style.backgroundColor = og_color;
+            //arrow.style.color = white_color;
+
+            // 스크롤 이벤트를 감지
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 10) { // 10px 이상 스크롤하면
+                    logo.src = '/wp-content/uploads/2024/09/미라클케어-로고2.png'; // 로고를 검은색 로고로 변경
+                    bg.style.backgroundColor = white_bg_color; // 배경화면을 흰색으로 변경
+
+                    let me_count = 0;
+                    menu.forEach(me => {
+                        me.style.color = black_color;  // 메뉴글씨를 검정색으로 변경
+                        //arrow.style.color = black_color;
+                        if (me_count!==1) {
+                            me.addEventListener('mouseenter', () => {
+                                me.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                            });
+                            me.addEventListener('mouseleave', () => {
+                                me.style.color = black_color; // 원래 폰트 색상으로 되돌림
+                            });
+                        } else {
+                            me.addEventListener('mouseenter', () => {
+                                me.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                                //arrow.style.color = hover_color;
+                            });
+                            me.addEventListener('mouseleave', () => {
+                                me.style.color = black_color; // 원래 폰트 색상으로 되돌림
+                                //arrow.style.color = black_color;
+                            });
+                        }
+                        me_count++;
+                    });
+                } else {
+                    logo.src = '/wp-content/uploads/2024/09/미라클케어-로고2화이트.png'; // 원래 로고로 되돌림
+                    bg.style.backgroundColor = og_color;
+
+                    let ce_count = 0;
+                    menu.forEach(ce => {
+                        ce.style.color = white_color;  // 메뉴글씨를 흰색으로 변경
+                        //arrow.style.color = white_color;
+                        if (ce_count!==1) {
+                            ce.addEventListener('mouseenter', () => {
+                                ce.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                            });
+                            ce.addEventListener('mouseleave', () => {
+                                ce.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                            });
+                        } else {
+                            ce.addEventListener('mouseenter', () => {
+                                ce.style.color = hover_color; // 마우스 올릴 때 폰트 색상을 hover_color로 변경
+                                //arrow.style.color = hover_color;
+                            });
+                            ce.addEventListener('mouseleave', () => {
+                                ce.style.color = white_color; // 원래 폰트 색상으로 되돌림
+                                //arrow.style.color = white_color;
+                            });
+                        }
+                        ce_count++;
+                    });
+                }
+            });
+        });
+    </script>
